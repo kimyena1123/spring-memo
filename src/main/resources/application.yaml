@@ -8,10 +8,13 @@
 #spring.datasource.username=root
 #spring.datasource.password=kimyena3264
 server:
-  port: 9100
+  port: 9200
 
 
 spring:
+  web:
+    resources:
+      add-mappings: false
   mvc:
     static-path-pattern: /static/**
     view:
