@@ -10,11 +10,10 @@
 server:
   port: 9200
 
-
 spring:
   web:
     resources:
-      add-mappings: false
+      add-mappings: true
   mvc:
     static-path-pattern: /static/**
     view:
@@ -25,3 +24,7 @@ spring:
     url: jdbc:mysql://localhost:3306/memo_spring
     username: root
     password: 1234
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.kimyena.memo.user.dao
