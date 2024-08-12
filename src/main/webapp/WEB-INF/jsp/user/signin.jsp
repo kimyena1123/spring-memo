@@ -29,5 +29,53 @@
             </div>
         </section>
     </div>
+
+<script>
+    $(document).ready(function(){
+
+        $("#login_btn").on("click", function(e){
+
+            //해당 이벤트의 기능을 모두 취소한다
+            //preventDefault: 브라우저에서 구현된 기본 동작을 취소해준다
+            //폼 이벤트: 폼이 제출되면 새로고침되는 기본ㄷ농작을 취소
+            e.preventDefault();
+
+            let user_id = $("#user_id").val();
+            let user_pw = $("#user_pw").val();
+
+            //input 빈 값이라면
+            if(user_id === ""){
+                alert('아이디를 입력해주세요');
+                return;
+            }
+            if(user_pw === ""){
+                alert("비밀번호를 입력해주세요");
+                return;
+            }
+
+            $.ajax({
+                type: 'POST',
+                url: '/user/signin',
+                data: {
+                    'user_id' : user_id,
+                    'user_pw' : user_pw,
+                },
+                success: function(res){
+                    console.log(res.result);
+                    if(res.result){
+                        alert('로그인 성공');
+                        location.href='/post/list/view';
+                    }else{
+                        alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+                        location.reload();
+                    }
+                },
+                error: function(err){
+                    alert('login err');
+                }
+            })
+        });
+    });
+</script>
 </body>
 </html>
