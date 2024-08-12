@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class EncryptUtils {
 
-    // 비밀번호 암호화
+    // 비밀번호 암호화: MD5(Message Digest Algorithm 5)를 사용하여 비밀번호를 해싱하는 방법
     //hashing을 사용해 암호화 진행
     //암호화는 회원가입 뿐만 아니라 로그인 시에도 사용된다. => 메소드로!
     public static String md5(String message) { // message 비밀번호 받기
